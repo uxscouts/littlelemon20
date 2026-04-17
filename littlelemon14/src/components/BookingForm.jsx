@@ -11,21 +11,23 @@ const BookingForm = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Update the context value
-    updateBooking(name, email, phone, date);
+    updateBooking(name, email, phone, date, time);
   };
 
   return (
     <div style={{ border: '1px solid black', padding: '20px' }}>
       <h3>Nested FormPage Component</h3>
       <p>Current Context User:</p> 
-        <p>{user.name}</p> 
-        <p>{user.email}</p>
-        <p>{user.phone}</p>
-        <p>{user.date}</p>
+        <p>Name: {user.name}</p> 
+        <p>Email: {user.email}</p>
+        <p>Phone: {user.phone}</p>
+        <p>Date: {user.date}</p>
+        <p>Time: {user.time}</p>
         <hr/>
       <form onSubmit={handleSubmit}>
         <input 
@@ -51,7 +53,13 @@ const BookingForm = () => {
           placeholder="Date" 
           value={date} 
           onChange={(e) => setDate(e.target.value)} 
-        />                
+        />
+          <input 
+          type="text" 
+          placeholder="Time" 
+          value={time} 
+          onChange={(e) => setTime(e.target.value)} 
+        />                        
         <button type="submit">Update Booking</button>
       </form>
     </div>
