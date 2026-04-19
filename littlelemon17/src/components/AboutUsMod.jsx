@@ -1,0 +1,37 @@
+function AboutUsMod() {
+  return (
+<>
+      <div className="About-Us-Container">
+        <section id="About-Us-Section">
+          <div className="about-grid-container">
+            <article className="About-Us-Module">
+              <h1 className="dullDarkGreen Markazi-Bold extraBig">Little Lemon</h1>
+              <h3 className="salmon MarkaziText-Bold prettyBig moveyUppy">Chicago</h3>
+              <p>Little Lemon Chicago is a family owned Mediterranean 
+                restaurant located in the heart of the city. The restaurant 
+                is run by brothers Mario and Adrian, who have always had a 
+                passion for cooking and serving delicious food. Growing 
+                up in a Mediterranean household, the brothers were exposed 
+                to traditional recipes from an early age, and they decided 
+                o bring those recipes to the masses with a modern twist. 
+                At Little Lemon, you can expect to find a menu full of 
+                classic dishes with a creative twist that makes them stand 
+                out from the rest. W ether you're looking for a quick lunch 
+                or a leisurely dinner, Little Lemon Chicago is the perfect 
+                place to indulge in a delicious meal in a cozy and welcoming 
+                atmosphere.</p>
+            </article>
+            <article className="About-Us-Module">
+              <div className="grid-container-offset-images">
+                <div className="box box1" />
+                <div className="box box2" />
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>  
+</>
+  )
+}
+
+export default AboutUsMod;

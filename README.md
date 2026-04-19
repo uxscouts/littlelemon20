@@ -1,2 +1,2 @@
-# littlelemon16
-taken from functioning littlelemon15 and now adding the styles
+# littlelemon17
+Got the relational date-to-time thing and a simple nav so will now add styling

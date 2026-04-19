@@ -1,0 +1,33 @@
+import { Routes, Route, Outlet } from "react-router-dom";
+ //import Navbar from "./components/Navbar";
+import SiteNavbar from "./components/Navbar2";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Reservation from "./pages/Reservation";
+
+
+const AppRoutes = () => {
+  return (
+    <>
+      <SiteNavbar />
+      <div className="content">
+        <Outlet />
+      </div>
+    </>
+  );
+};
+
+
+const RouterConfig = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<AppRoutes />}>
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="reservation" element={<Reservation />} />
+            </Route>
+        </Routes>
+    )
+}
+
+export default RouterConfig;

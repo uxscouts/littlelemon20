@@ -1,0 +1,511 @@
+
+/*
+Salmon: #ee9972
+Light grey: #EDEFEE
+Deep Green: #495E57
+Lemon Yellow: #F4CE14
+Coral: #EE9972
+Dark Gray: #333333 
+*/
+
+body {
+  background-color: #f2f2f2;
+}
+
+.extraBig {
+  font-size: 360%;
+}
+.prettyBig {
+  font-size: 280%;
+}
+
+.moveyUppy {
+  margin-top: -30px;
+}
+@font-face {
+  font-family: 'Markazi Text';
+  src: url('./assets/fonts/MarkaziText-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+  font-size: 106%;
+  color: #666666;
+}
+/*  
+url("./assets/fonts/MarkaziText-Medium.ttf")
+url("./assets/fonts/MarkaziText-Regular.ttf")
+url("./assets/fonts/MarkaziText-SemiBold.ttf") 
+*/
+
+.salmon {
+  color: #ee9972;
+}
+
+.Markazi-Bold {
+  font-family: 'Markazi Text';
+  font-weight: bold;
+}
+
+.dullDarkGreen {
+  color: #495e57;
+}
+
+.LittleLemon_Container {
+  background-color: #495E57;
+}
+
+.footer {
+  text-align: center;
+}
+
+.container-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.Tray_of_Fancy_Sushi {
+  width: 300px;
+  height: 360px;
+  background-color: red;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  position: relative; /* Ensures shadow displays over grid lines */
+  z-index: 1;  
+  background-image: url("./assets/images/Fancy-Sushi-Small.png"); /* Sets the image */
+  background-size: cover;                  /* Scales the image to cover the entire container */
+  background-repeat: no-repeat;            /* Prevents the image from tiling */
+  background-position: center;             /* Centers the image within the div */
+  margin-bottom: -40px;
+}
+
+@media (max-width: 740px) {
+  .Tray_of_Fancy_Sushi  {
+    display: none;
+  }
+}
+
+.grid-item {
+  padding: 20px;
+}
+
+
+.lightGrey {
+  background-color: light;
+}
+.big-green-section {
+  background-color:#495e57;
+  padding:3em;
+}
+.lemon-yellow {
+  color: #F4CE14;
+}
+.white {
+  color: white;
+}
+
+
+/*
+Super light blue
+Hex Code: #A5D4DF or #B0E9FF
+#fdf4ee; seaShell
+#f2f2f2; bgColor
+*/
+
+.title_special {
+color: #212121;
+font-family: "Markazi Text",serif;
+font-size: 64px;
+}
+
+
+h1, h2, h3, h4, h5, h6, label {
+   font-family: 'Markazi Text', serif;
+  font-weight: 500;
+}
+
+.markazi-text-400 {
+  font-family: 'Markazi Text', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.markazi-text-500 {
+   font-family: 'Markazi Text', serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.markazi-text-600 {
+   font-family: 'Markazi Text', serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.markazi-text-700 {
+  font-family: 'Markazi Text', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+.container {
+  display: grid;
+  /* Creates three columns that are at least 100px wide, and at most 1fr (equal share of available space) */
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  /* Limits the total width of the container, effectively limiting the max width of the columns */
+  max-width: 900px; /* e.g., 3 columns * 300px max width each */
+  gap: 10px; /* Adds space between items */
+}
+
+
+.container2 {
+  display: inline-grid; /* Makes the container inline to its siblings */
+  grid-template-columns: auto auto auto; /* Defines the internal grid structure */
+  background-color: dodgerblue;
+  padding: 10px;
+}
+.container2 div {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+  width: 100%;
+  padding-top: 30px;
+}
+
+.item-left {
+  justify-self: start; /* Aligns the item to the left edge of its cell */
+  padding-left: 20px;
+}
+
+.item-right {
+  justify-self: end; /* Aligns the item to the right edge of its cell */
+  padding-right: 20px;
+}
+
+/* Ensure padding and border are included in the element's total width and height */
+* {
+  box-sizing: border-box; /* */
+}
+
+
+.card-grid {
+  display: grid; /* */
+  /* This creates responsive columns that are at least 300px wide, growing to fill the space */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* */
+  gap: 20px; /* Controls spacing between cards */
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adds the "card" effect */
+  border-radius: 5px;
+  overflow: hidden; /* Ensures image corners are also rounded */
+  background-color: #f1f1f1;
+  /* Smooth transition for both the transform (scale) and box-shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  /* Expand the card by 5% (1.05 times its original size) */
+  transform: scale(1.05);
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures images cover their container while maintaining aspect ratio */
+}
+
+.card__content {
+  padding: 16px;
+}
+
+.card__info {
+  padding: 16px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9e9e9;
+}
+
+.card__link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.super-light-grey {
+  background-color: #EDEFEE;
+  background-color: #f2f2f2;
+}
+
+.maxWidth {
+  max-width: 1200px;
+  min-width: 350px;
+  margin-left: auto; 
+  margin-right:auto;
+  border: solid red 3px;
+  border: solid 0px;
+}
+
+.card h2  {
+  display: flex; /* Make the H2 a flex container */
+  justify-content: space-between; /* Pushes items to the far ends of the container */
+}
+
+
+
+/* Optional styling for the sub-elements */
+.card .left-text {
+  /* Default alignment is left, no extra style needed here */
+  border: solid green 0px;
+}
+
+.card .right-element {
+  /* Aligned to the right edge by 'justify-content: space-between' */
+  color: #ee9972;
+}
+
+.card-container {
+ display: flex;
+}
+.card-text {
+  flex-grow: 1; /* Makes all text divs same size */
+}
+
+card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure container has height */
+}
+
+
+.card__info {
+  margin-top: auto; /* Pushes content to bottom */
+  padding: 16px;
+}
+
+.superSize {
+  font-size: 240%;
+}
+
+
+.tiny-icon {
+	width: 46px;
+	height: 46px;
+	object-fit: cover;
+}
+
+
+.reviewsContainer {
+	display: flex;
+	/* Enables flexbox layout in a block-level container */
+	justify-content: space-around;
+	/* Distributes space around the items */
+	padding: 100px 30px 100px 30px;
+	font-size: 84%;
+}
+
+.review-module {
+	flex: 1;
+	/* Makes all boxes equal width and flexible */
+	background-color: #fff;
+	padding: 20px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s ease-in-out;
+	/* Smooth transition */
+}
+
+@media (max-width: 700px) {
+  .reviewsContainer {
+  flex-direction: column; /* Default for larger screens */
+  }
+}
+
+.review-module:hover {
+	transform: scale(1.05);
+	/* 5% expansion */
+}
+
+.super-container {
+  max-width: 1200px; 
+  margin: 0px auto;
+}
+
+
+/* styles for About Us Module */
+
+      .About-Us-Container {
+        width: 100%;
+        padding: 10px;
+        max-width: 960px;
+        min-width: 500px;
+        margin: 0px auto;
+      }
+      
+      
+      /* Mobile-First: Default to Vertical Stack */
+      .about-grid-container {
+        display: grid;
+        grid-template-columns: 1fr; /* One column on small screens */
+        gap: 20px; /* Space between boxes */
+        padding: 10px;
+      }
+      
+      .About-Us-Module {
+        padding: 20px;
+      }
+            
+      /* Tablet/Desktop: Switch to Horizontal */
+      @media (min-width: 720px) {
+        .about-grid-container {
+          grid-template-columns: 1fr 1fr; /* Two equal columns */
+          text-align: left;
+        }
+      }
+      
+
+
+        .grid-container-offset-images {
+          display: grid;
+          /* Creates a single-cell grid */
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          width: 290px;
+          height: 420px;
+          padding-top: 100px; 
+          margin: 0px auto;
+        }
+        
+        @keyframes jiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg) translateX(2px); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-5deg) translateX(-2px); }
+            100% { transform: rotate(0deg); }
+          }
+                  
+        .box {
+          /* Place both boxes in the first (and only) cell */
+          grid-area: 1 / 1; /* Shorthand for grid-row: 1/2; grid-column: 1/2; */
+          padding: 20px;
+          border-radius: 20px;
+          animation: jiggle 0.2s ease-in-out 0.3s;
+          border: solid 4px white;
+        }
+        
+        .box1 {
+          z-index: 1; 
+          background-image: url("./assets/images/About-Image-04.png"); 
+          background-repeat: no-repeat;
+          background-position: center center;
+          filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));         
+        }
+        .box1:hover{
+          z-index: 10;
+           animation: jiggle 0.3s infinite;
+        }
+        .box2 {
+          z-index: 2;
+          transform: translate(100px, -80px);
+          background-color: white;
+          background-image: url("./assets/images/About-Image-03.png"); 
+          background-repeat: no-repeat;
+          background-position: center center;
+          filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+        }
+
+
+.MenuBox {
+    background-color: #EDEFEE;
+    padding: 20px;
+    text-align: left;
+    color: #777777;
+}
+
+.grid-container-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem; /* Adds space between grid items */
+  font-family: tahoma, Geneva, Verdana, sans-serif;
+}
+
+.super-container-footer {
+  max-width: 1200px; 
+  margin: 0px auto;
+  background-color: #EDEFEE;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.maxWidth-footer {
+  background-color: #EDEFEE;
+  display: block;
+  width: 100%;
+}
+
+.BookingForm {
+display: grid; 
+max-width: 700px;
+gap: 2em;
+}
+
+.BookingFormContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 0px 0px;
+  margin: 30px auto;
+  width: 700px;
+}
+
+.BookingForm {
+  font-family: 'Markazi Text';
+}
+
+.BookingForm input, .BookingForm label {
+  font-size: 170%;
+}
+
+.BookingFormContainer select {
+  background-color: #f0f0f0; /* Example background color */
+  color: #333;               /* Example text color */
+  padding: 10px;             /* Example padding */
+  border: 1px solid #ccc;    /* Example border */
+  font-size: 170%;          /* Example font size */
+}
+
+/* You can target option elements directly for some basic styling */
+.BookingFormContainer option {
+  background-color: white;
+  color: black;
+}
+
+.BookingFormContainer button {
+  background-color: #ee9972;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 170%;
+  cursor: pointer;
+}
