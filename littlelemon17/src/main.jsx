@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <RouterConfig />
       </BrowserRouter>
-      <App />
+        <App />
       <Footer/>
     </BookingProvider>
   </React.StrictMode>

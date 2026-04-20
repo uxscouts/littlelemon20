@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { useUser } from '../context/BookingContext';
 
 function BookingForm({ availableTimes, dispatch }) {
@@ -39,29 +40,53 @@ function BookingForm({ availableTimes, dispatch }) {
       <p>Time: {user.time}</p>
       <p>Occasion: </p>
       <hr />
-      <form onSubmit={handleSubmit}>
-        <input
+
+
+<div className="BookingFormContainer">
+
+    {/*  <form onSubmit={handleSubmit}> */}
+        <Form className="BookingForm" onSubmit={handleSubmit}>
+
+          <FormGroup>
+          <Label htmlFor="name">Name</Label>
+        <Input
+          id="name"
           type="text"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
-        <input
+        </FormGroup>
+
+        <FormGroup>
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <input
+        </FormGroup>  
+
+       <FormGroup>
+        <Label htmlFor="phone">Phone</Label>
+        <Input
+          id="phone"
           type="text"
           placeholder="Phone"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           required
         />
-        <input
+        </FormGroup>
+
+       <FormGroup>
+        <Label htmlFor="guests">Guests</Label>
+        <Input
+          id="guests"
           type="number"
           placeholder="Guests"
           value={guests}
@@ -69,27 +94,34 @@ function BookingForm({ availableTimes, dispatch }) {
           min="1"
           required
         />
+      </FormGroup>
 
-        <label htmlFor="date">Choose date</label>
-        <input
-          type="date"
+       <FormGroup>
+        <Label htmlFor="date">Date</Label>
+        <Input
           id="date"
+          type="date"
           value={date}
           onChange={handleDateChange}
           required
         />
+      </FormGroup>  
 
-        <label htmlFor="time">Choose time</label>
-        <select id="time" value={time} onChange={handleTimeChange}>
+      <FormGroup>
+        <Label htmlFor="time">Time</Label>
+        <Input type="select" name="time" id="time" value={time} onChange={handleTimeChange}>
           {availableTimes.map((timeOption) => (
             <option key={timeOption} value={timeOption}>
               {timeOption}
             </option>
           ))}
-        </select>
+        </Input>
+       </FormGroup> 
 
-        <input type="submit" value="Make Your Reservation" />
-      </form>
+       {/* <input type="submit" value="Make Your Reservation" /> */}
+        <Button type="submit">Make Your reservation</Button>
+      </Form>
+      </div>
     </div>
   );
 }
