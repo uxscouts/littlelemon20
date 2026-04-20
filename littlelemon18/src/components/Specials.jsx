@@ -3,7 +3,7 @@ function Specials(){
 <>
   <div className="grid-container maxWidth super-light-grey">
     <div className="item-left">
-      <h1 className="markazi-text-600 superSize">This Weeks Specials!</h1>
+      <h1 className="markazi-text-600 superSize" id="specials">This Weeks Specials!</h1>
     </div>
     <div className="item-right">
       <button className="btn btn-warning">Online Menu</button>
@@ -31,7 +31,7 @@ function Specials(){
           </div>
         </div>
         <div className="card__info">
-          <span>
+          <span id="orderonline">
             <img
               src="https://uploads.onecompiler.io/43kv2wvza/44evj8dcu/delivery-bike03.png"
               width={60}

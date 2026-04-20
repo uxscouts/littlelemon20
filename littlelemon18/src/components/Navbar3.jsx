@@ -15,9 +15,9 @@ function Navbar3() {
 
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#specials">Menu</Nav.Link>
             <Nav.Link href="/reservation">Reservation</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#orderonline">Order Online</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>
             
 {/*}
