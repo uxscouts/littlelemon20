@@ -1,4 +1,7 @@
 
+
+
+
 function Reviews() {
   return (
     <>
@@ -21,22 +24,8 @@ function Reviews() {
               <small>Sara72</small>
             </div>
           </div>
-          <div aria-label="Rating">
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
+          <div aria-label="Rating: 5 out of 5 stars">
+            <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
           </div>
           <p aria-label="Review Description">
             "Seriously cannot stop thinking about the Turkish Mac n' Cheese!!"
@@ -59,21 +48,9 @@ function Reviews() {
             </div>
           </div>
           <div aria-label="Rating">
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
+             <div aria-label="Rating: 5 out of 5 stars">
+              ⭐ ⭐⭐ ⭐ ⭐
+            </div>
           </div>
           <p aria-label="Review Description">
             "We had such a great time celebrating my grandmothers birthday!"
@@ -96,21 +73,9 @@ function Reviews() {
             </div>
           </div>
           <div aria-label="Rating">
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
+             <div aria-label="Rating: 5 out of 5 stars">
+              ⭐ ⭐⭐ ⭐ ⭐
+            </div>
           </div>
           <p aria-label="Review Description">
             "Such a chilled out atmosphere, love it!"
@@ -133,21 +98,9 @@ function Reviews() {
             </div>
           </div>
           <div aria-label="Rating">
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
-            <span aria-label="Star Icon">
-              ⭐
-            </span>
+             <div aria-label="Rating: 5 out of 5 stars">
+              ⭐ ⭐⭐ ⭐ ⭐
+            </div>
           </div>
           <p aria-label="Review Description">
             "Best Feta Salad in town. Flawless every time!"
@@ -160,3 +113,4 @@ function Reviews() {
 }
 
 export default Reviews;
+

@@ -1,15 +1,16 @@
+
 import { useRef } from 'react';
 
-
 function AboutUsMod() {
-  const targetRef = useRef(null);
+  const targetRef = useRef(null); 
+  
   return (
     <>
-      <div className="About-Us-Container" id="about">
-        <section id="About-Us-Section">
+      <div className="About-Us-Container" id="about" ref={targetRef}>
+        <section id="About-Us-Section" aria-labelledby="about-heading">
           <div className="about-grid-container">
             <article className="About-Us-Module">
-              <h1 className="dullDarkGreen Markazi-Bold extraBig">Little Lemon</h1>
+              <h1 id="about-heading" className="dullDarkGreen Markazi-Bold extraBig">Little Lemon</h1>
               <h3 className="salmon MarkaziText-Bold prettyBig moveyUppy">Chicago</h3>
               <p>Little Lemon Chicago is a family owned Mediterranean 
                 restaurant located in the heart of the city. The restaurant 
@@ -24,11 +25,11 @@ function AboutUsMod() {
                 or a leisurely dinner, Little Lemon Chicago is the perfect 
                 place to indulge in a delicious meal in a cozy and welcoming 
                 atmosphere.</p>
-            </article>
-            <article className="About-Us-Module">
-              <div className="grid-container-offset-images">
-                <div className="box box1" />
-                <div className="box box2" />
+            </article>        
+            <article className="About-Us-Module" aria-label="Restaurant gallery">
+              <div className="grid-container-offset-images" role="img" aria-label="Photos of our restaurant interior and food">
+                <div className="box box1" aria-hidden="true" />
+                <div className="box box2" aria-hidden="true" />
               </div>
             </article>
           </div>
