@@ -508,3 +508,7 @@ gap: 2em;
   font-size: 170%;
   cursor: pointer;
 }
+
+.text-center {
+  text-align: center;
+}

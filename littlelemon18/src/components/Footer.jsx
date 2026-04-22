@@ -1,40 +1,61 @@
+import Nav from 'react-bootstrap/Nav';
+import logo from '../assets/images/LemonLogo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 function Footer() {
   return (
-<>
-     <div className="maxWidth-footer">
+    <footer className="maxWidth-footer" role="contentinfo">
       <div className="super-container-footer">
         <div className="grid-container-footer">
-          <div About="MenuBox">
-            <img src="./src/assets/images/Footer-Logo-small2.png" className="img-fluid" alt="Responsive image" width="200" />
-          </div>
           <div className="MenuBox">
+            <img 
+              src="./src/assets/images/Footer-Logo-small2.png" 
+              className="img-fluid" 
+              alt="Little Lemon Logo" 
+              width="200" 
+            />
+          </div>
+
+          <nav className="MenuBox" aria-label="Footer Navigation">
             <p><strong>Navigation</strong></p>
-            <p>Home</p>
-            <p>About</p>
-            <p>Menu</p>
-            <p>Reservations</p>
-            <p>Order Online</p>
-            <p>Login</p>
-          </div>
-          <div className="MenuBox">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/#about">About</Nav.Link>
+            <Nav.Link href="/#specials">Menu</Nav.Link>
+            <Nav.Link href="/reservation">Reservation</Nav.Link>
+            <Nav.Link href="/#specials">Order Online</Nav.Link>
+          </nav>
+
+          <nav className="MenuBox" aria-label="Contact Information">
             <p><strong>Contact</strong></p>
-            <p>69 Vico Araratiano</p>
-            <p>(709)879-4459</p>
-            <p>Email Us</p>
-          </div>
-          <div className="MenuBox">
-            <p><strong>Socials</strong></p>
-            <p>Facebook</p>
-            <p>Twitter</p>
-            <p>Instagram</p>
-          </div>
+            <address>
+              <p>69 Vico Araratiano<br/>(709) 879-4459</p>
+              <a href="mailto:contact@littlelemon.com">Email Us</a>
+            </address>
+          </nav>
+
+          <nav className="MenuBox" aria-label="Social Media">
+            <p><strong>Social Media</strong></p>
+            <Nav.Link href="/">
+              <FontAwesomeIcon icon={faFacebook} aria-hidden="true" /> Facebook
+            </Nav.Link>
+            <Nav.Link href="/">
+              <FontAwesomeIcon icon={faInstagram} aria-hidden="true" /> Instagram
+            </Nav.Link>
+            <Nav.Link href="/">
+              <FontAwesomeIcon icon={faTwitter} aria-hidden="true" /> Twitter
+            </Nav.Link>
+          </nav>
         </div>
-        <hr></hr>
-        <p align="center">2026 © Little Lemon</p>
+        <hr aria-hidden="true" />
+        <p className="text-center">2026 © Little Lemon</p>
       </div>
-    </div>  
-</>
-  )
+    </footer>
+  );
 }
 
-export default Footer
+
+export default Footer;
+

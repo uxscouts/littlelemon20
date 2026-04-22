@@ -1,72 +1,61 @@
-import React, { useReducer, useEffect } from 'react';
-import BookingForm from './BookingForm';
-import { fetchAPI } from '../API';
+import React, { useReducer } from "react";
+import BookingForm from "./BookingForm";
+import { fetchAPI } from "../API";
 
-
-// 1. Define the reducer function
 export const updateTimes = (state, action) => {
-    switch (action.type) {
-        case 'UPDATE_TIMES': {
-            const selectedDate = new Date(action.payload);
-            if (isNaN(selectedDate.getTime())) {
-                return state;
-            }
-            return fetchAPI(selectedDate);
-        }
-        default:
-            return state;
+  switch (action.type) {
+    case "UPDATE_TIMES": {
+      const selectedDate = new Date(action.payload);
+      if (isNaN(selectedDate.getTime())) {
+        return state;
+      }
+      return fetchAPI(selectedDate);
     }
+    default:
+      return state;
+  }
 };
 
-// 2. Define initial state function
 export const initializeTimes = () => {
-    const today = new Date();
-    return fetchAPI(today);
+  const today = new Date();
+  return fetchAPI(today);
 };
-
 
 function BookingPage() {
-    // 3. Setup useReducer
-    const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+  const [availableTimes, dispatch] = useReducer(
+    updateTimes,
+    [],
+    initializeTimes
+  );
 
-    return (
-        <main>
-            <h1>Reserve a Table</h1>
-            {/* 4. Pass state and dispatch as props */}
-            <BookingForm 
-                availableTimes={availableTimes} 
-                dispatch={dispatch} 
-            />
-        </main>
-    );
+  return (
+    // Explicit role for broader assistive technology support
+    <main role="main">
+      <h1 id="booking-title">Reserve a Table</h1>
+      
+      {/* 
+        Aria-live ensures screen readers announce when 
+        available times change after a date selection.
+      */}
+      <section 
+        aria-live="polite" 
+        aria-atomic="true"
+        aria-labelledby="booking-title"
+      >
+        <BookingForm 
+          availableTimes={availableTimes} 
+          dispatch={dispatch} 
+        />
+      </section>
+    </main>
+  );
 }
 
 export default BookingPage;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/*
+{
+  /*
 
 import React, { useReducer, useCallback, useEffect } from 'react';
 import BookingForm from './BookingForm'; // Assuming a BookingForm component exists
@@ -125,4 +114,5 @@ const BookingPage = () => {
 
 export default BookingPage;
 
-*/}
+*/
+}

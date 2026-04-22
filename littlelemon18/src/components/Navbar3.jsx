@@ -14,11 +14,10 @@ function Navbar3() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#specials">Menu</Nav.Link>
+            <Nav.Link href="/#about">About</Nav.Link>
+            <Nav.Link href="/#specials">Menu</Nav.Link>
             <Nav.Link href="/reservation">Reservation</Nav.Link>
-            <Nav.Link href="#orderonline">Order Online</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="/#specials">Order Online</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -28,5 +27,18 @@ function Navbar3() {
 }
 
 export default Navbar3;
+
+/*
+
+          <nav className="MenuBox" aria-label="Footer Navigation">
+            <p><strong>Navigation</strong></p>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/#about">About</Nav.Link>
+            <Nav.Link href="/#specials">Menu</Nav.Link>
+            <Nav.Link href="/reservation">Reservation</Nav.Link>
+            <Nav.Link href="/#orderonline">Order Online</Nav.Link>
+          </nav>
+
+*/
 
 
