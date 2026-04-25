@@ -13,13 +13,17 @@ export default defineConfig({
 
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'jsdom', // Simulates browser DOM
     globals: true,        // Allows using 'describe', 'it', 'expect' without imports
-    setupFiles: './test/setup.js', // Global setup for matchers
+    setupFiles: path.resolve(__dirname, 'src/test/setup.js'), // Global setup for matchers
   },
 });
 

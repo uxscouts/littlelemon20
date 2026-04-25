@@ -24,7 +24,7 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     const formData = {
       name,
       email,
@@ -142,7 +142,7 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               ))}
             </Input>
           </FormGroup>
-          <Button role="button" type="submit">Reservation</Button>
+          <Button role="button" type="submit">submit</Button>
         </Form>
       </div>
     </div>
