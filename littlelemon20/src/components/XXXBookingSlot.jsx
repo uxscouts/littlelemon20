@@ -25,7 +25,6 @@ export const BookingSlot = ({
       disabled={!isAvailable}
       onClick={() => onSelect(id)}
       className={`${baseClasses} ${statusClasses}`}
-      // Concatenated label includes selection state and position
       aria-label={`${time}, ${isAvailable ? 'Available' : 'Booked'}${isSelected ? ', currently selected' : ''}. Slot ${index + 1} of ${totalSlots}.`}
     >
       <span className="font-medium block" aria-hidden="true">
@@ -47,39 +46,3 @@ export const BookingSlot = ({
 };
 
 
-
-// BookingSlot.jsx
-{/*
-export const BookingSlot = ({
-  id,
-  time,
-  isAvailable,
-  onSelect,
-  isSelected,
-}) => {
-  const baseClasses = "p-3 border rounded-md text-center transition-all cursor-pointer";
-  
-  const statusClasses = !isAvailable
-    ? "bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200"
-    : isSelected
-    ? "bg-blue-600 text-white border-blue-600 shadow-md"
-    : "bg-white text-gray-700 border-gray-300 hover:border-blue-500 hover:bg-blue-50";
-
-  return (
-    <button
-      type="button"
-      disabled={!isAvailable}
-      onClick={() => onSelect(id)}
-      className={`${baseClasses} ${statusClasses}`}
-      // ARIA additions below
-      aria-pressed={isAvailable ? isSelected : undefined}
-      aria-label={`${time}, ${isAvailable ? 'Available' : 'Booked'}`}
-    >
-      <span className="font-medium" aria-hidden="true">{time}</span>
-      <p className="text-xs mt-1" aria-hidden="true">
-        {isAvailable ? "Available" : "Booked"}
-      </p>
-    </button>
-  );
-};
-*/}

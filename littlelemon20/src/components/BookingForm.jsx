@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { useUser } from "../context/BookingContext";
+import { Form, FormGroup, Label, Input, Button, Table } from "reactstrap";
+import { useBooking } from "../context/BookingContext";
 
 function BookingForm({ availableTimes, dispatch, onSubmit }) {
-  const { user, updateBooking } = useUser();
+  const { booking, updateBooking } = useBooking();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -24,7 +24,6 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     const formData = {
       name,
       email,
@@ -33,25 +32,38 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
       date,
       time,
     };
-
     updateBooking(name, email, phone, guests, date, time);
     if (onSubmit) {
       onSubmit(formData);
     }
   };
-
   return (
-    <div style={{ border: "1px solid black", padding: "20px" }}>
-      <h3>Reservation Form</h3>
-      <p>Current Context User:</p>
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-      <p>Phone: {user.phone}</p>
-      <p>Guests: {user.guests}</p>
-      <p>Date: {user.date}</p>
-      <p>Time: {user.time}</p>
-      <p>Occasion: </p>
-      <hr />
+    <>
+    <div>
+    <div className="container">
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Guests</th>
+            <th>Date</th>
+            <th>Time</th>          
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>{booking.name}</td>
+              <td>{booking.email}</td>
+              <td>{booking.phone}</td>
+               <td>{booking.guests}</td>
+              <td>{booking.date}</td>
+              <td>{booking.time}</td>             
+            </tr>
+        </tbody>
+      </Table>
+    </div>
 
       <div className="BookingFormContainer">
         <Form
@@ -71,7 +83,6 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               aria-required="true"
             />
           </FormGroup>
-
           <FormGroup>
             <Label htmlFor="email">Email</Label>
             <Input
@@ -84,7 +95,6 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               aria-required="true"
             />
           </FormGroup>
-
           <FormGroup>
             <Label htmlFor="phone">Phone</Label>
             <Input
@@ -97,7 +107,6 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               aria-required="true"
             />
           </FormGroup>
-
           <FormGroup>
             <Label htmlFor="guests">Guests</Label>
             <Input
@@ -111,7 +120,6 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               aria-required="true"
             />
           </FormGroup>
-
           <FormGroup>
             <Label htmlFor="date">Date</Label>
             <Input
@@ -123,44 +131,8 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               aria-required="true"
             />
           </FormGroup>
-
-
-    {/*
-
-          <FormGroup>
-            <Label htmlFor="time">Time</Label>
-            <Input
-              type="select"
-              name="time"
-              id="time"
-              value={time}
-              onChange={handleTimeChange}
-              required
-              aria-required="true"
-            >
-              
-              {availableTimes.map((timeOption) => (
-                <option key={timeOption} value={timeOption}>
-                  {timeOption}
-                </option>
-              ))}
-                
-            </Input>
-            </FormGroup>
-*/}
-
-
               <FormGroup>
             <Label htmlFor="time">Time</Label>  
-            {/*
-            <div>
-              {availableTimes.map((timeOption) => (
-                <button key={timeOption} value={timeOption}>
-                  {timeOption}
-                </button>
-              ))}
-            </div>
-*/}
               <div className="box">
               {availableTimes.map((timeOption) => (
                   <div key={timeOption} className="timeOptions">
@@ -182,6 +154,7 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
         </Form>
       </div>
     </div>
+    </>
   );
 }
 
