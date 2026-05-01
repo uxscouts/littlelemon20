@@ -1,15 +1,98 @@
-import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button, Table } from "reactstrap";
+import React, { useState, useReducer } from "react";
+import { Form, FormGroup, Label, Input, Button, Table, Container } from "reactstrap";
 import { useBooking } from "../context/BookingContext";
 
-function BookingForm({ availableTimes, dispatch, onSubmit }) {
-  const { booking, updateBooking } = useBooking();
+
+// reducer logic: this simple form reducer is used to 
+// put booking form data into state
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE':
+      return { ...state, [action.field]: action.value };
+    default:
+      return state;
+  }
+};
+
+
+function BookingForm({ 
+  availableTimes,
+  dispatch, 
+ // onSubmit, 
+ // onSendData,  
+  onChildSubmit
+}) {
+  
+
+ // const { booking, updateBooking } = useBooking();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [guests, setGuests] = useState("1");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+
+
+/*
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      name,
+      email,
+      phone,
+      guests,
+      date,
+      time,
+    };
+    alert("onSubmit Triggered");
+    updateBooking(name, email, phone, guests, date, time);
+    if (onSubmit) {
+      onSubmit(formData);
+    }
+  };
+*/
+
+
+
+//  this code is using Reducer to send value to Booking page
+//this one uses the onChange to send values to pare nt
+// maybe delete this is I only use the Reducer for onSubmit
+/*
+  const [state, dispatch] = useReducer(formReducer, 
+    { 
+      name: '', 
+      email: '',
+    });
+*/
+
+    // this is for the Reducer onChange funtion
+    // maybe will delete if do only onSubmit for Reducer
+    // to send up to parent (booking page)
+    /*
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSendData(state);
+  }
+*/
+
+  // use function uses Reducer to send data to parent
+  // but it is different becuase it sends values via
+  // onSubmit (so I can simulateously creaete local State 
+  // with onChange)
+  const handleSubmit2 = (event) => {
+    event.preventDefault(); // Stop reload
+    const data = new FormData(event.target);
+    const value = Object.fromEntries(data.entries()); // Convert to object
+    onChildSubmit(value); // Send up to parent
+  };
+
+
+
+// this if for Reducer Update Times only
+// and this happens locally but onChange 
+// so values are dictated by date change
+// dont need this because I switched to the onSubmit for 
+// form REDUCER
 
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
@@ -22,25 +105,9 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
     setTime(selectedTime);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = {
-      name,
-      email,
-      phone,
-      guests,
-      date,
-      time,
-    };
-    updateBooking(name, email, phone, guests, date, time);
-    if (onSubmit) {
-      onSubmit(formData);
-    }
-  };
   return (
     <>
-    <div>
-    <div className="container">
+    <Container className="mt-5 p-3 custom-border">
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -54,84 +121,84 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
         </thead>
         <tbody>
             <tr>
-              <td>{booking.name}</td>
-              <td>{booking.email}</td>
-              <td>{booking.phone}</td>
-               <td>{booking.guests}</td>
-              <td>{booking.date}</td>
-              <td>{booking.time}</td>             
+              <td>{name}</td>
+              <td>{email}</td>
+              <td>{phone}</td>
+               <td>{guests}</td>
+              <td>{date}</td>
+              <td>{time}</td>             
             </tr>
         </tbody>
-      </Table>
-    </div>
-
+        </Table>
+      </Container>
       <div className="BookingFormContainer">
         <Form
           className="BookingForm"
           aria-labelledby="booking-title"
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit2}
         >
           <FormGroup>
             <Label htmlFor="name">Name</Label>
-            <Input
-              id="name"
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+            <Input 
+              name="name" 
+              type="text" 
+              placeholder="Name" 
               required
-              aria-required="true"
-            />
+              aria-required="true" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}                     
+            />            
           </FormGroup>
           <FormGroup>
             <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="Email"
+            <Input 
+              name="email" 
+              type="text" 
+              placeholder="Email" 
+              required
+              aria-required="true" 
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              aria-required="true"
-            />
-          </FormGroup>
-          <FormGroup>
+              onChange={(e) => setEmail(e.target.value)}                     
+            />             
+           </FormGroup>
+           <FormGroup>
             <Label htmlFor="phone">Phone</Label>
-            <Input
-              id="phone"
-              type="text"
-              placeholder="Phone"
+            <Input 
+              name="phone" 
+              type="text" 
+              placeholder="Phone" 
+              required
+              aria-required="true" 
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
-              aria-required="true"
-            />
-          </FormGroup>
-          <FormGroup>
+              onChange={(e) => setPhone(e.target.value)}                     
+            />             
+           </FormGroup> 
+           <FormGroup>
             <Label htmlFor="guests">Guests</Label>
-            <Input
-              id="guests"
-              type="number"
-              placeholder="Guests"
-              value={guests}
-              onChange={(e) => setGuests(e.target.value)}
-              min="1"
+            <Input 
+              name="guests" 
+              type="text" 
+              placeholder="Guests" 
               required
-              aria-required="true"
-            />
-          </FormGroup>
-          <FormGroup>
+              aria-required="true" 
+              value={guests}
+              onChange={(e) => setGuests(e.target.value)}                     
+            />             
+           </FormGroup> 
+           <FormGroup>
             <Label htmlFor="date">Date</Label>
-            <Input
+            <Input 
               id="date"
-              type="date"
+              name="date" 
+              type="date" 
+              placeholder="Guests" 
               value={date}
               onChange={handleDateChange}
               required
-              aria-required="true"
-            />
-          </FormGroup>
-              <FormGroup>
+              aria-required="true"                                  
+            />             
+           </FormGroup>
+            <FormGroup>
             <Label htmlFor="time">Time</Label>  
               <div className="box">
               {availableTimes.map((timeOption) => (
@@ -149,13 +216,13 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
                   </div>
                 ))}
                 </div>
-          </FormGroup>
+          </FormGroup>                                               
           <Button role="button" type="submit">submit</Button>
         </Form>
-      </div>
-    </div>
+        </div>
     </>
   );
 }
 
 export default BookingForm;
+

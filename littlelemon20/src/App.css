@@ -152,13 +152,11 @@ h1, h2, h3, h4, h5, h6, label {
 
 
 
-.container {
+.container-various {
   display: grid;
-  /* Creates three columns that are at least 100px wide, and at most 1fr (equal share of available space) */
   grid-template-columns: repeat(3, minmax(100px, 1fr));
-  /* Limits the total width of the container, effectively limiting the max width of the columns */
-  max-width: 900px; /* e.g., 3 columns * 300px max width each */
-  gap: 10px; /* Adds space between items */
+  max-width: 900px; 
+  gap: 10px; 
 }
 
 

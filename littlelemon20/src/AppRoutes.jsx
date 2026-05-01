@@ -5,6 +5,7 @@ import SiteNavbar from "./components/Navbar3";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Reservation from "./pages/Reservation";
+import ConfirmedBooking from "./pages/ConfirmedBooking";
 
 
 const AppRoutes = () => {
@@ -26,6 +27,7 @@ const RouterConfig = () => {
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="reservation" element={<Reservation />} />
+                <Route path="confirmedbooking" element={<ConfirmedBooking />} />
             </Route>
         </Routes>
     )
